@@ -1,0 +1,67 @@
+import java.awt.*;
+import java.awt.event.*;
+
+public class ClassQ extends Frame implements ActionListener {
+    TextField tname, tdiv;
+    Button btn;
+    Choice hobbyl;
+    String name = "", div = "", hobby = "";
+
+    ClassQ() {
+        setSize(400, 400);
+        setLayout(null);
+
+        Label lname = new Label("name : ");        
+        Label ldiv = new Label("division : "); 
+        Label lhobby = new Label("hobbies : "); 
+        
+        tname = new TextField();        
+        tdiv = new TextField();        
+        btn = new Button("print");
+        hobbyl = new Choice();
+
+        hobbyl.add("singing");
+        hobbyl.add("reading");
+        hobbyl.add("swimming");
+        hobbyl.add("dancing");
+         
+        lname.setBounds(10, 30, 90, 30);
+        ldiv.setBounds(10, 70, 90, 30);
+        lhobby.setBounds(10, 110, 90, 30);
+        tname.setBounds(110, 30, 150, 30);
+        tdiv.setBounds(110, 70, 150, 30);
+        hobbyl.setBounds(110, 110, 150, 30);
+        btn.setBounds(110, 160, 100, 30);
+
+        add(lname);
+        add(ldiv);
+        add(lhobby);
+        add(tname);
+        add(tdiv);
+        add(hobbyl);
+        add(btn);
+
+        btn.addActionListener(this);
+        
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                System.exit(0);
+            }
+        });
+       setVisible(true);
+    }
+    public void actionPerformed(ActionEvent e) {
+        name = tname.getText();
+        div = tdiv.getText();
+        hobby = hobbyl.getSelectedItem();
+        repaint();
+    }
+    public void paint(Graphics g) {
+        g.drawString("name : " + name, 50, 300);
+        g.drawString("division : " + div, 50, 320);
+        g.drawString("hobbies : " + hobby, 50, 340);
+    }
+    public static void main(String[] args) {
+        new ClassQ();
+    }
+}
