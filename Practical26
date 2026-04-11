@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
 
-public class Practical26 implements ActionListener{
+public class Practical26 {
 	Frame f = new Frame();
 	Practical26(){
 		f.setSize(500, 500);
